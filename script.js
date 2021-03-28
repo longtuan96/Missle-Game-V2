@@ -1,11 +1,23 @@
-//Initialize the canvas
+//Initialization
 
 const canvas = document.getElementById("canvas");
 canvas.width = innerWidth; //make the canvas full screen
 canvas.height = innerHeight; //^ same
 const ctx = canvas.getContext("2d");
 const scoreEl = document.getElementById("scoreEl");
+const buttonStartGame = document.getElementById("start-game-btn");
+const buttonEasy = document.getElementById("easy-btn");
+const buttonMedium = document.getElementById("medium-btn");
+const buttonHard = document.getElementById("hard-btn");
+const buttonSEasy = document.getElementById("super-easy-btn");
+const mainMenu = document.getElementById("mainMenu");
+const game = document.getElementById("game");
+const difficultyText = document.getElementById("difficulty");
+const gameOver = document.getElementById("game-over");
+const point = document.getElementById("point");
+const buttonAgain = document.getElementById("game-over");
 
+let difficulty = 0;
 //define a player
 class Player {
   constructor(x, y, radius, color) {
@@ -153,7 +165,7 @@ function spawnEnemy() {
       y: Math.sin(angle),
     };
     enemies.push(new Enemy(x, y, radius, color, velocity));
-  }, 5000);
+  }, difficulty);
 }
 //creating bullet
 const particles = [];
@@ -202,6 +214,10 @@ function animate() {
     enemy.update();
     const distToPlayer = Math.hypot(player.x - enemy.x, player.y - enemy.y);
     if (distToPlayer - enemy.radius - player.radius < 1) {
+      gameOver.style.display = "flex";
+      game.style.display = "none";
+      mainMenu.style.display = "none";
+      point.innerHTML = score;
       cancelAnimationFrame(animation);
     }
     //hit on enemy detection
@@ -242,8 +258,7 @@ function animate() {
     }
   });
 }
-animate();
-spawnEnemy();
+
 //every time clicked spawn a bullet in the middle
 addEventListener("click", (event) => {
   //everytime there is an event, do below
@@ -271,4 +286,33 @@ addEventListener("click", (event) => {
   );
   console.log(`clientX: ${event.clientX}`);
   console.log(`clientY: ${event.clientY}`);
+});
+//button event
+buttonStartGame.addEventListener("click", () => {
+  animate();
+  spawnEnemy();
+  mainMenu.style.display = "none";
+  game.style.display = "block";
+  gameOver.style.display = "none";
+});
+buttonEasy.addEventListener("click", () => {
+  difficulty = 3000;
+  difficultyText.innerHTML = "Easy Mode";
+});
+buttonMedium.addEventListener("click", () => {
+  difficulty = 2000;
+  difficultyText.innerHTML = "Medium Mode";
+});
+buttonHard.addEventListener("click", () => {
+  difficulty = 500;
+  difficultyText.innerHTML = "Hard Mode";
+});
+buttonSEasy.addEventListener("click", () => {
+  difficulty = 5000;
+  difficultyText.innerHTML = "Teacher Tuan Mode";
+});
+buttonAgain.addEventListener("click", () => {
+  mainMenu.style.display = "flex";
+  game.style.display = "none";
+  gameOver.style.display = "none";
 });

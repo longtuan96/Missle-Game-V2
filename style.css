@@ -11,3 +11,74 @@ body {
   margin: 10px;
   user-select: none;
 }
+
+.d-flex {
+  display: flex;
+}
+.flex-column {
+  flex-direction: column;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.fixed {
+  position: fixed;
+}
+
+section#mainMenu {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+}
+#mainMenu h1 {
+  font-size: 400%;
+  user-select: none;
+}
+#mainMenu p {
+  font-size: 200%;
+  user-select: none;
+}
+#mainMenu button {
+  font-size: 100%;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+#mainMenu button:hover {
+  background-color: yellow;
+  color: black;
+}
+
+section#game {
+  display: none;
+}
+
+section#game-over {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: none;
+}
+#game-over button {
+  font-size: 100%;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}

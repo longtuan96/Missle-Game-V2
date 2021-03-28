@@ -8,8 +8,28 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="score"><span>Score: </span><span id="scoreEl"></span></div>
-    <canvas id="canvas" "></canvas>
+    <!-- Main Menu -->
+    <section id="mainMenu" class="d-flex flex-column align-items-center justify-content-center fixed">
+      <h1>Welcome to my game</h1>
+      <p>Please choose the difficulty</p>
+      <button id="easy-btn">Easy</button>
+      <button id="medium-btn">Medium</button>
+      <button id="hard-btn">Hard</button>
+      <button id="super-easy-btn">Teacher Tuan Mode</button>
+      <p>Difficulty: <span id="difficulty"></span></p>
+      <button id="start-game-btn">Start Game</button>
+    </section>
+    <!-- Game -->
+    <section id="game"><div class="score"><span>Score: </span><span id="scoreEl"></span></div>
+      <canvas id="canvas" "></canvas></section>
+    
+    <!-- Game Over -->
+    <section id="game-over" class="d-flex flex-column align-items-center justify-content-center fixed">
+      <h1>Congratulation!!!</h1>
+      <p>you got: <span id="point"></span> points</p>
+      <p>Life is like a game, you gonna lost most of the time but as long as you still hit play again, you will win. -- SIRIS</p>
+      <button id="play-again"> Play again</button>
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
